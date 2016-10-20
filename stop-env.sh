@@ -7,5 +7,5 @@ fi
 
 ENV=$1
 
-eval "$(docker-machine env composeHost)"
-docker-compose -p $ENV stop
+ecs-cli configure --region eu-west-1 --cluster cluster01
+ecs-cli compose --project-name $ENV --file docker-compose.$ENV.yml service stop
